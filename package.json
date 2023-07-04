@@ -1,0 +1,19 @@
+{
+  "name": "inventory-app",
+  "version": "1.0.0",
+  "description": "A home inventory application that helps you keep track of your personal belongings and assets. It allows you to create a digital catalog of items in your home, including details such as item names, descriptions, purchase dates, values, and attached photos. With this application, you can easily organize and manage your possessions, keep records for insurance purposes, track maintenance or repairs, and generate reports. Simplify the management of your home inventory with this user-friendly and convenient application.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shavidze/inventory-app.git"
+  },
+  "author": "Saba Shavidze",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/shavidze/inventory-app/issues"
+  },
+  "homepage": "https://github.com/shavidze/inventory-app#readme"
+}
