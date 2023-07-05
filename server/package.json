@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/shavidze/inventory-app/issues"
   },
-  "homepage": "https://github.com/shavidze/inventory-app#readme"
+  "homepage": "https://github.com/shavidze/inventory-app#readme",
+  "dependencies": {
+    "knex": "^2.4.2"
+  }
 }
