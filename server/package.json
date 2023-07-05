@@ -17,6 +17,12 @@
   },
   "homepage": "https://github.com/shavidze/inventory-app#readme",
   "dependencies": {
+    "dotenv": "^16.3.1",
     "knex": "^2.4.2"
+  },
+  "devDependencies": {
+    "eslint": "^8.44.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.27.5"
   }
 }
