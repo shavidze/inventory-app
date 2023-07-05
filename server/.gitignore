@@ -4,4 +4,4 @@ docker-data
 
 *.env
 
-.package-lock.json
+package-lock.json
