@@ -9,5 +9,8 @@ module.exports = {
       user: process.env.POSTGRES_USER,
       pasword: process.env.POSTGRES_PASSWORD,
     },
+    migrations: {
+      directory: './db/migrations',
+    },
   },
 };
