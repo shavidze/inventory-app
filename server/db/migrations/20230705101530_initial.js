@@ -26,10 +26,17 @@ function createNameTable(knex, table_name) {
   });
 }
 
-function dropTablesToArray(knex) {
-  return tableNames.map((tableName) => knex.schema.dropTable(tableName));
+function references(table, tableName) {
+  table.integer(`${tableName}_id`).unsigned().references('id').inTable(tableName);
 }
 
+function url(table, columnName) {
+  return table.string(columnName, 2000);
+}
+
+function email(table, columnName) {
+  return table.string(columnName, 255);
+}
 /**
  * @param { Knex } knex
  * @returns { Promise<void> }
@@ -38,7 +45,7 @@ exports.up = async (knex) => {
   await Promise.all([
     knex.schema.createTable(tableNames.user, (table) => {
       table.increments().notNullable();
-      table.text('email', 255).notNullable().unique();
+      email(table, 'email').notNullable().unique();
       table.string('name').notNullable();
       table.text('password', 64).notNullable();
       table.datetime('last_login');
@@ -56,6 +63,26 @@ exports.up = async (knex) => {
       addDefaultColumns(table);
     }),
   ]);
+  await knex.schema.createTable(tableNames.address, (table) => {
+    table.increments().notNullable();
+    table.string('street_address_1', 50).notNullable();
+    table.string('street_address_2', 50);
+    table.string('city', 50).notNullable();
+    table.string('zipcode', 50).notNullable();
+    table.float('latitude').notNullable();
+    table.float('longitude').notNullable();
+    references(table, tableNames.state);
+    references(table, tableNames.country);
+  });
+  await knex.schema.createTable(tableNames.company, (table) => {
+    table.increments().notNullable();
+    table.string('name').notNullable();
+    url(table, 'logo_url');
+    table.string('description', 1000);
+    url(table, 'website_url');
+    email(table, 'email');
+    references(table, tableNames.address);
+  });
 };
 
 /**
