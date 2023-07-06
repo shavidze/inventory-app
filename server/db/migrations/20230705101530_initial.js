@@ -26,22 +26,36 @@ function createNameTable(knex, table_name) {
   });
 }
 
+function dropTablesToArray(knex) {
+  return tableNames.map((tableName) => knex.schema.dropTable(tableName));
+}
+
 /**
  * @param { Knex } knex
  * @returns { Promise<void> }
  */
 exports.up = async (knex) => {
-  await knex.schema.createTable(tableNames.user, (table) => {
-    table.increments().notNullable();
-    table.text('email', 255).notNullable().unique();
-    table.string('name').notNullable();
-    table.text('password', 64).notNullable();
-    table.datetime('last_login');
-    addDefaultColumns(table);
-  });
-  await createNameTable(knex, tableNames.item_type);
-  await createNameTable(knex, tableNames.country);
-  await createNameTable(knex, tableNames.state);
+  await Promise.all([
+    knex.schema.createTable(tableNames.user, (table) => {
+      table.increments().notNullable();
+      table.text('email', 255).notNullable().unique();
+      table.string('name').notNullable();
+      table.text('password', 64).notNullable();
+      table.datetime('last_login');
+      addDefaultColumns(table);
+    }),
+    createNameTable(knex, tableNames.item_type),
+    createNameTable(knex, tableNames.country),
+    createNameTable(knex, tableNames.state),
+    createNameTable(knex, tableNames.shape),
+    knex.schema.createTable(tableNames.location, (table) => {
+      table.increments().notNullable();
+      table.string('name').notNullable();
+      table.string('description', 100);
+      table.string('image_url', 2000);
+      addDefaultColumns(table);
+    }),
+  ]);
 };
 
 /**
@@ -49,5 +63,7 @@ exports.up = async (knex) => {
  * @returns { Promise<void> }
  */
 exports.down = async (knex) => {
-  await knex.schema.dropTable(tableNames.user);
+  await Promise.all(
+    Object.values(tableNames).map((table_name) => knex.schema.dropTable(table_name)),
+  );
 };
