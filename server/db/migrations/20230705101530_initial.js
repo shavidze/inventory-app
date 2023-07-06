@@ -27,7 +27,11 @@ function createNameTable(knex, table_name) {
 }
 
 function references(table, tableName) {
-  table.integer(`${tableName}_id`).unsigned().references('id').inTable(tableName);
+  table
+    .integer(`${tableName}_id`)
+    .unsigned().references('id')
+    .inTable(tableName)
+    .onDelete('cascade');
 }
 
 function url(table, columnName) {
