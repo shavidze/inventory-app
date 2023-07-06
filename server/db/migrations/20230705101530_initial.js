@@ -15,6 +15,19 @@ function addDefaultColumns(table) {
 
 /**
  * @param { Knex } knex
+ * @param { string } table_name
+ * @returns {Knex.SchemaBuilder}
+*/
+function createNameTable(knex, table_name) {
+  return knex.schema.createTable(table_name, (table) => {
+    table.increments().notNullable();
+    table.string('name').notNullable().unique();
+    addDefaultColumns(table);
+  });
+}
+
+/**
+ * @param { Knex } knex
  * @returns { Promise<void> }
  */
 exports.up = async (knex) => {
@@ -26,6 +39,9 @@ exports.up = async (knex) => {
     table.datetime('last_login');
     addDefaultColumns(table);
   });
+  await createNameTable(knex, tableNames.item_type);
+  await createNameTable(knex, tableNames.country);
+  await createNameTable(knex, tableNames.state);
 };
 
 /**
