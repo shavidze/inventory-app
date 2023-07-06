@@ -1,5 +1,5 @@
 // eslint-disable-next-line no-unused-expressions
-require('dotenv').config;
+require('dotenv').config();
 
 module.exports = {
   development: {
@@ -7,7 +7,8 @@ module.exports = {
     connection: {
       database: process.env.POSTGRES_DB,
       user: process.env.POSTGRES_USER,
-      pasword: process.env.POSTGRES_PASSWORD,
+      password: process.env.POSTGRES_PASSWORD,
+      socketPath: '/var/run/postgresql',
     },
     migrations: {
       directory: './db/migrations',
