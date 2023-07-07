@@ -7,4 +7,5 @@ module.exports = {
   state: 'state',
   shape: 'shape',
   location: 'location',
+  size: 'size',
 };

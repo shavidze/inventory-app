@@ -18,8 +18,13 @@ function addDefaultColumns(table) {
  */
 function createNameTable(knex, table_name) {
   return knex.schema.createTable(table_name, (table) => {
-    table.increments().notNullable();
-    table.string('name').notNullable().unique();
+    table
+      .increments()
+      .notNullable();
+    table
+      .string('name')
+      .notNullable()
+      .unique();
     addDefaultColumns(table);
   });
 }
