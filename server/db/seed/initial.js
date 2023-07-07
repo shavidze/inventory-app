@@ -7,8 +7,11 @@ const countries = require('../../src/utils/constants/countries');
  * @param { import("knex").Knex } knex
  * @returns { Promise<void> }
  */
-exports.seed = async function (knex) {
-  await Promise.all(Object.values(orderedTableNames).map((table_name) => knex(table_name).del()));
+exports.seed = async (knex) => {
+  await orderedTableNames.reduce(async (promise, table_name) => {
+    await promise;
+    return knex(table_name).del();
+  }, Promise.resolve());
   const password = uuidv4().replace(/-/g, '');
   const user = {
     email: 'sabashavidze@gmail.com',
