@@ -1,46 +1,10 @@
 const Knex = require('knex');
 
+const {
+  addDefaultColumns, references, url, email, createNameTable,
+} = require('../../src/utils/db/tableUtils');
+
 const tableNames = require('../../src/utils/constants/tableNames');
-
-/**
- *
- * @param {} table
- * @returns table with created_at, updated_at, deleted_at columns
- */
-function addDefaultColumns(table) {
-  table.timestamps(false, true);
-  table
-    .datetime('deleted_at', { precision: 6 });
-}
-
-/**
- * @param { Knex } knex
- * @param { string } table_name
- * @returns {Knex.SchemaBuilder}
-*/
-function createNameTable(knex, table_name) {
-  return knex.schema.createTable(table_name, (table) => {
-    table.increments().notNullable();
-    table.string('name').notNullable().unique();
-    addDefaultColumns(table);
-  });
-}
-
-function references(table, tableName) {
-  table
-    .integer(`${tableName}_id`)
-    .unsigned().references('id')
-    .inTable(tableName)
-    .onDelete('cascade');
-}
-
-function url(table, columnName) {
-  return table.string(columnName, 2000);
-}
-
-function email(table, columnName) {
-  return table.string(columnName, 255);
-}
 /**
  * @param { Knex } knex
  * @returns { Promise<void> }
