@@ -23,4 +23,7 @@ exports.seed = async (knex) => {
   console.log('User created', { password }, createdUser);
 
   await knex(tableNames.country).insert(countries);
+  await knex(tableNames.state).insert([{
+    name: 'CO',
+  }]);
 };
