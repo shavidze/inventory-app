@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "migrate": "knex migrate:latest",
     "rollback": "knex migrate:rollback",
-    "seed": "knex seed:make",
+    "seed": "knex seed:run",
     "status": "knex migrate:status"
   },
   "repository": {
@@ -24,7 +24,8 @@
     "bcrypt": "^5.1.0",
     "dotenv": "^16.3.1",
     "knex": "^2.4.2",
-    "pg": "^8.11.1"
+    "pg": "^8.11.1",
+    "uuid": "^9.0.0"
   },
   "devDependencies": {
     "eslint": "^8.44.0",
