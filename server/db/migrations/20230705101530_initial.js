@@ -59,6 +59,15 @@ exports.up = async (knex) => {
  */
 exports.down = async (knex) => {
   await Promise.all(
-    Object.values(tableNames).map((table_name) => knex.schema.dropTable(table_name)),
+    [
+      tableNames.company,
+      tableNames.address,
+      tableNames.user,
+      tableNames.item_type,
+      tableNames.country,
+      tableNames.state,
+      tableNames.shape,
+      tableNames.inventory_location,
+    ].map((tableName) => knex.schema.dropTableIfExists(tableName)),
   );
 };
