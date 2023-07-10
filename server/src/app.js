@@ -7,6 +7,7 @@ const app = express();
 app.use(morgan('tiny'));
 app.use(compression());
 app.use(helmet());
+app.use(express.json());// read json body
 
 app.get('/', (req, res) => {
   res.json({
