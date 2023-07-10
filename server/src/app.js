@@ -8,4 +8,10 @@ app.use(morgan('tiny'));
 app.use(compression());
 app.use(helmet());
 
+app.get('/', (req, res) => {
+  res.json({
+    message: '🌭🍾 H-Invetory API 🥊🌊',
+  });
+});
+
 module.exports = app;
