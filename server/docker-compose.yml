@@ -11,6 +11,8 @@ services:
       - ${DB_PORT}:${DB_PORT}
     volumes:
       - ./docker-data/db-data:/var/lib/postgresql/data
+      - ./docker-entrypoint-initdb:/docker-entrypoint-initdb.d
+
   adminer:
     depends_on:
       - db
