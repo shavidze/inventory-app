@@ -4,7 +4,7 @@ const express = require('express');
 
 const router = express.Router();
 
-router.get('/states', async (req, res) => {
+router.get('/states', (req, res) => {
   res.json([]);
 });
 
