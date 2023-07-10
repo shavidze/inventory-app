@@ -23,7 +23,7 @@ exports.up = async (knex) => {
     createNameTable(knex, tableNames.country),
     createNameTable(knex, tableNames.state),
     createNameTable(knex, tableNames.shape),
-    knex.schema.createTable(tableNames.location, (table) => {
+    knex.schema.createTable(tableNames.inventory_location, (table) => {
       table.increments().notNullable();
       table.string('name').notNullable();
       table.string('description', 100);

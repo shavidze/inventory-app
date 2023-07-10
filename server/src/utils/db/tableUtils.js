@@ -29,13 +29,17 @@ function createNameTable(knex, table_name) {
   });
 }
 
-function references(table, tableName) {
-  table
-    .integer(`${tableName}_id`)
+function references(table, tableName, notNullable = true, columnName = '') {
+  const ref = table
+    .integer(`${columnName || tableName}_id`)
     .unsigned()
     .references('id')
     .inTable(tableName)
     .onDelete('cascade');
+  if (notNullable) {
+    ref.notNullable();
+  }
+  return ref;
 }
 
 function url(table, columnName) {

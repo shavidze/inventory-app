@@ -6,7 +6,7 @@ module.exports = {
   country: 'country',
   state: 'state',
   shape: 'shape',
-  location: 'location',
+  inventory_location: 'inventory_location',
   size: 'size',
   item: 'item',
   item_info: 'item_info',

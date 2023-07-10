@@ -9,5 +9,5 @@ module.exports = [
   tableNames.state,
   tableNames.country,
   tableNames.shape,
-  tableNames.location,
+  tableNames.inventory_location,
 ];
