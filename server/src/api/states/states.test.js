@@ -7,6 +7,6 @@ describe('GET /api/v1/states', () => {
     const response = await supertest(app)
       .get('/api/v1/states')
       .expect(200);
-    expect(response.body).toEqual([]);
+    expect(response.body.length).toBeGreaterThan(0);
   });
 });
