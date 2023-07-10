@@ -2,7 +2,7 @@ const supertest = require('supertest');
 
 const app = require('./app');
 
-describe('App', () => {
+describe('Get /', () => {
   it('should respond with a message', async () => {
     const response = await supertest(app)
       .get('/')
