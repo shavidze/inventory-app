@@ -4,7 +4,7 @@ const queris = require('./states.queries');
 
 const router = express.Router();
 
-router.get('/', async (req, res) => {
+router.get('/states', async (req, res) => {
   const states = await queris.find();
   res.json(states);
 });

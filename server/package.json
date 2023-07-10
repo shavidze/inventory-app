@@ -9,7 +9,7 @@
     "seed": "knex seed:run",
     "status": "knex migrate:status",
     "start": "nodemon --inspect src/index.js",
-    "test":"jest"
+    "test":"NODE_ENV=test jest"
   },
   "repository": {
     "type": "git",
