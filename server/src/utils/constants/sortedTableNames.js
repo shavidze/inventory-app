@@ -2,6 +2,7 @@ const tableNames = require('./tableNames');
 
 module.exports = [
   tableNames.user,
+  tableNames.item,
   tableNames.item_type,
   tableNames.company,
   tableNames.address,

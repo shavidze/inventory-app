@@ -8,4 +8,6 @@ module.exports = {
   shape: 'shape',
   location: 'location',
   size: 'size',
+  item: 'item',
+  item_info: 'item_info',
 };

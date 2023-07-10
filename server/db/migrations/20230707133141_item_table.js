@@ -25,6 +25,27 @@ exports.up = async (knex) => {
     references(table, tableNames.shape);
     addDefaultColumns(table);
   });
+  await knex.schema.createTable(tableNames.item, (table) => {
+    table.increments();
+    references(table, tableNames.user);
+    table.string('name').notNullable();
+    references(table, tableNames.item_type);
+    table.text('descriptoin');
+    references(table, tableNames.company);
+    references(table, tableNames.size);
+    table.string('sku', 64);
+    table.boolean('sparsk_joy').defaultTo(true);
+    addDefaultColumns(table);
+  });
+  await knex.schema.createTable(tableNames.item_info, (table) => {
+    table.increments();
+    references(table, tableNames.user);
+    references(table, tableNames.item);
+    table.dateTime('purchase_date').notNullable();
+    table.dateTime('expiration_date');
+    references(table, tableNames.item);
+    table.integer('msrp');
+  });
 };
 
 /**
