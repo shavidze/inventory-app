@@ -2,7 +2,6 @@ const express = require('express');
 const morgan = require('morgan');
 const compression = require('compression');
 const helmet = require('helmet');
-const request = require('supertest');
 
 const middlewares = require('./middlewares');
 
@@ -17,14 +16,7 @@ app.get('/', (req, res) => {
     message: '🌭 🍾 H-Invetory API 🥊 🌊',
   });
 });
-request(app)
-  .get('/')
-  .expect('Content-Type', /json/)
-  .expect('Content-Length', '48')
-  .expect(200)
-  .end((err, res) => {
-    if (err) console.log(err);
-  });
+
 app.use(middlewares.notFound);
 app.use(middlewares.errorHandler);
 

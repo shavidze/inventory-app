@@ -4,6 +4,7 @@ module.exports = {
     browser: true,
     commonjs: true,
     es2021: true,
+    jest: true,
   },
   extends: 'airbnb-base',
   overrides: [],
@@ -11,6 +12,6 @@ module.exports = {
     ecmaVersion: 'latest',
   },
   rules: {
-    camelcase: 0
+    camelcase: 0,
   },
 };
