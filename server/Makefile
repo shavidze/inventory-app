@@ -5,7 +5,7 @@ build:
 
 run:
 	@echo "Running application with Docker Compose..."
-	docker-compose up -d
+	docker-compose up
 
 stop:
 	@echo "Stopping and removing running containers..."
