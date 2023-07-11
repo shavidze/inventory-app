@@ -1,36 +1,36 @@
-# Build the Docker image
 build:
-    npm run migrate
-    docker build -t server .
+	@echo "Building Docker image..."
+	npm run migrate
+	docker build -t server .
 
-# Run the application with Docker Compose
 run:
-    docker-compose up -d
+	@echo "Running application with Docker Compose..."
+	docker-compose up -d
 
-# Stop and remove the running containers
 stop:
-    docker-compose down
+	@echo "Stopping and removing running containers..."
+	docker-compose down
 
-# Run database migrations
 migrate:
-    npm run migrate
+	@echo "Running database migrations..."
+	npm run migrate
 
-# Rollback database migrations
 rollback:
-    npm run rollback
+	@echo "Rolling back database migrations..."
+	npm run rollback
 
-# Seed the database
 seed:
-    npm run seed
+	@echo "Seeding the database..."
+	npm run seed
 
-# Get the status of database migrations
 status:
-    npm run status
+	@echo "Getting the status of database migrations..."
+	npm run status
 
-# Start the application (without Docker)
 start:
-    npm start
+	@echo "Starting the application (without Docker)..."
+	npm start
 
-# Run tests
 test:
-    npm test
+	@echo "Running tests..."
+	npm test
