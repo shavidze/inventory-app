@@ -1,4 +1,5 @@
 module.exports = {
-  verbose: true,
-  setupFilesAfterEnv: ['./jest.setup.js'],
+  globalSetup: './src/jest-cf/setupTests.js',
+  globalTeardown: './src/jest-cf/teardownTests.js',
+  setupFilesAfterEnv: ['./src/jest-cf/setupFilesAfterEnv.js'],
 };

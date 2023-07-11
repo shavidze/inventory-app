@@ -39,7 +39,7 @@ exports.up = async (knex) => {
     table.string('zipcode', 50).notNullable();
     table.float('latitude').notNullable();
     table.float('longitude').notNullable();
-    references(table, tableNames.state);
+    references(table, tableNames.state, false);
     references(table, tableNames.country);
   });
   await knex.schema.createTable(tableNames.company, (table) => {

@@ -18,12 +18,10 @@ exports.seed = async (knex) => {
     name: 'Saba',
     password: await bcrypt.hash(password, 12),
   };
-  const [createdUser] = await knex(tableNames.user).insert(user).returning('*');
-
-  console.log('User created', { password }, createdUser);
-
-  await knex(tableNames.country).insert(countries);
+  await knex(tableNames.user).insert(user).returning('*');
+  await knex(tableNames.country).insert(countries, '*');
   await knex(tableNames.state).insert([{
+    country_id: 1,
     name: 'CO',
   }]);
 };
