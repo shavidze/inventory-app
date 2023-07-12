@@ -27,3 +27,8 @@ services:
       - 8070:8080
 volumes:
   db-data:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: ./docker-data/db-data

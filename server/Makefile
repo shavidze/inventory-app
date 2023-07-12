@@ -1,6 +1,5 @@
 build:
 	@echo "Building Docker image..."
-	npm run migrate
 	docker build -t server .
 
 run:
