@@ -21,9 +21,9 @@ Organize and track belongings effortlessly with this user-friendly home inventor
 
 ## Other Makefile Commands
 
-`make migrate`: Run database migrations.
-`make rollback`: Rollback the most recent database migration.
-`make seed`: Seed the database with initial data.
-`make status`: Get the status of database migrations.
-`make start`: Start the application without using Docker.
-`make test`: Run tests for the application.
+- [x] `make migrate`: Run database migrations.
+- [x] `make rollback`: Rollback the most recent database migration.
+- [x] `make seed`: Seed the database with initial data.
+- [x] `make status`: Get the status of database migrations.
+- [x] `make start`: Start the application without using Docker.
+- [x] `make test`: Run tests for the application.
